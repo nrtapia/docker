@@ -1,0 +1,17 @@
+version: "2"
+services:
+    webstudio:
+        container_name: openltablets-webstudio
+        image: openltablets/webstudio:5.22.1
+        ports:
+            - 8888:80
+        volumes:
+            - webstudio-data:/root/.openl
+            - ./drivers:/usr/local/tomcat/shared/lib
+
+volumes:
+  webstudio-data:
+
+
+            
+
