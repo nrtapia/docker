@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    volumes:
+      - 'zookeeper_data:/bitnami/zookeeper'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka-1:
+    image: 'bitnami/kafka:0'
+    ports:
+      - '9091:9092'
+    volumes:
+      - 'kafka_data_1:/bitnami/kafka'
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
+  kafka-2:
+    image: 'bitnami/kafka:0'
+    ports:
+      - '9092:9092'
+    volumes:
+      - 'kafka_data_2:/bitnami/kafka'
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
+  kafka-3:
+    image: 'bitnami/kafka:0'
+    ports:
+      - '9093:9092'
+    volumes:
+      - 'kafka_data_3:/bitnami/kafka'
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data_1:
+    driver: local
+  kafka_data_2:
+    driver: local
+  kafka_data_3:
+    driver: local
