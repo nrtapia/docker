@@ -4,7 +4,7 @@
 ### Ejecutar terminal en un contenedor ###
 - docker exec -it [container] bash
 
-# Ejecutar la terminal de la VM de Docker en MAC
+### Ejecutar la terminal de la VM de Docker en MAC ###
 
 - docker run -it --rm --privileged --pid=host justincormack/nsenter1 
 
