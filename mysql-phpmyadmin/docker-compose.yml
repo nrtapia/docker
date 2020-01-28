@@ -2,7 +2,7 @@ version: "2"
 services:
     mysqldb:
         container_name: mysql
-        image: mysql/mysql-server:8.0
+        image: mysql/mysql-server:5.7
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=test
@@ -12,8 +12,6 @@ services:
             - DATA_SAVE_PATH=~/mysql/docker/data
         ports:
             - 3306:3306
-        volumes:
-            - mysql-data-mac:/var/lib/mysql/data
     myadmin:
         container_name: myadmin
         image: phpmyadmin/phpmyadmin:latest
@@ -26,5 +24,4 @@ services:
         depends_on:
             - mysqldb
 
-volumes:
-  mysql-data-mac:
+
