@@ -1,0 +1,12 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-CU19-ubuntu-16.04
+    ports:
+        - 1433:1433
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Spc25nt+
+
